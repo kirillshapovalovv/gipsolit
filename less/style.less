@@ -1,0 +1,967 @@
+// Colors
+@btn-color: #fcb303;
+@icons-color: #46b814;
+@bg-prices-color: #32a003;
+@bg-upsell-color: #32a003;
+@text-color: #1a1820;
+@danger-color: #ff0000;
+@bg-light: #f5f5f5;
+@light: #fff;
+@border-input-color: rgb(200, 200, 200);
+@problems-color: #e8e8e8;
+
+
+
+// Mixins
+.reg() {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+}
+.bold() {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+
+
+
+
+// Basic setting
+html {
+    font-size: 10px;
+}
+body {
+    .reg();
+}
+
+
+
+
+
+// Оформление форм
+.form {
+    // инпуты
+    &-input, &-textarea {
+        display: block;
+        width: 100%;
+        padding: 1.5rem;
+        border: 2px solid @border-input-color;
+        outline: none;
+        margin: 2rem 0;
+        border-radius: 8px;
+    }
+    font-size: 1.7rem;
+    // Подписи к полям (имя и номер телефона)
+    label {
+        background-color: @light;
+        padding: 0.5rem;
+        font-size: 1.3rem;
+
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }   
+    // Кнопка отправить заявку
+    &-btn {
+        display: block;
+        height: 5.5rem;
+        width: 100%;
+        font-size: 1.6rem;
+    }
+}
+
+
+
+
+
+
+// Typography
+// 1rem = 10px
+section {
+    padding: 10rem 0;
+}
+.section-header {
+    &-light {
+        color: @light;
+        margin-top: 0;
+    }
+    h2 {
+        .bold();
+        font-size: 3.6rem;
+    }
+    p {
+        font-size: 1.4rem;
+    }
+    text-align: center;
+    margin: 2rem 0 10rem;
+}
+
+
+
+
+// main
+.main {
+    background: #fff url(../img/main-bg.jpg) center center no-repeat;
+    // делаем картинку больше
+    background-size: cover;
+    padding: 3rem 0 5rem;
+    &-content {
+        margin-top: 10rem;
+        // Главный заголовок
+        h1 {
+            margin-top: 0;
+            line-height: 1.45;
+            margin-bottom: 5rem;
+            font-size: 4rem;
+            .bold()
+        }
+        
+    }
+    // Подзаголовок
+    &-subtitle {
+        margin-bottom: 5rem;
+        font-size: 2.4rem;
+    }
+    // Зеленый ярлык
+    span {
+        display: inline-block;
+        padding: 3rem 5rem;
+        background-color: @icons-color;
+        font-size: 1.8rem;
+        color: @light;
+        text-align: center;
+        // Цифра 300
+        strong {
+            font-size: 3rem;
+            .bold()
+        }
+    }
+    // Оплата по факту
+    &-trigger {
+        margin-top: 3rem;
+        display: block;
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        .bold();
+    }
+    // Главная форма
+    &-form {
+        border-radius: 8px;
+        background-color: @light;
+        padding: 4rem 5rem;
+        text-align: center;
+        // Заголовок формы
+        &-header {
+            font-size: 1.6rem;
+            margin-bottom: 4rem;
+            // Выезд замерщика
+            strong {
+                font-size: 1.8rem;
+            }
+        }
+        
+        // Подпись под кнопкой
+        small {
+            display: block;
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+    }
+}
+
+
+
+.header {
+    height: 7rem;
+}
+.wrap {
+    display: table;
+    width: 100%;
+    height: 7rem;
+    &-block {
+        // table-cell - Указывает, что элемент представляет собой ячейку таблицы
+        display: table-cell;
+        vertical-align: middle;
+        text-align: right;
+    }
+}
+a:hover {
+    text-decoration: none;
+}
+button, input, a {
+    &:focus {
+        outline: none;
+    }
+}
+.button {
+    background-color: @btn-color;
+    color: @light;
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+    border-radius: 8px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    transition: all .4s;
+    // Эффект при наведении на кнопку
+    &:hover {
+        background-color: darken(@btn-color, 5%);
+    }
+}
+.phone {
+    &-link {
+        display: inline-block;
+        color: @text-color;
+        .bold();
+        font-size: 19px;
+        height: 7rem;
+        line-height: 7rem;
+        // Выравниваем ссылку относительно формы
+        &-block {
+            text-align: right;
+        }
+    }
+}
+
+
+
+
+
+// Оформлени секции с преимуществами
+.features {
+    &-block {
+        text-align: center;
+        h3 {
+            font-size: 2rem;
+            .bold();
+            margin-bottom: 3rem;                      
+        }
+        p {
+            font-size: 1.3rem;
+            display: inline-block;
+            width: 80%;
+        }
+    }
+    &-img {
+        height: 8rem;
+        margin-bottom: 3rem;
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+// Убираем обводку у слайдера
+.slick-active {
+    outline: none;
+}
+// добавляем стрелки
+.arrow {
+    top: 50%;
+    transform: scaleX(-50%);
+    position: absolute;
+    z-index: 99;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background-size: 100%;
+}
+// левая
+.prev {
+    background:url(../img/left-arrow.svg) center no-repeat;
+    left: 0;
+    background-size: 70%;
+}
+// правая
+.next {
+    background:url(../img/right-arrow.svg) center no-repeat;
+    right: 0;
+    background-size: 70%;
+}
+
+
+
+
+
+// Секция с ценами
+.price {
+    background: @bg-prices-color center;
+    &-header-btn {
+        margin-top: 1.5rem;
+    }
+    &-button {
+        text-align: right;
+    }
+
+    // Карточки с тарифами
+    &-block {
+        padding: 1rem 3rem 4rem;
+        background-color: @light;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.17);
+        text-align: center;
+        min-height: 50rem;
+        border-radius: 8px;
+        h4 {
+            margin: 3rem 0;
+            font-size: 1.7rem;
+            .bold();
+        }
+        img {
+            width: 100%;
+            max-width: 30rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+    }
+    &-tag {
+        display: block;
+        margin-bottom: 2rem;
+        font-size: 1.9rem;
+        .bold();
+    }
+    &-list {
+        padding: 0;
+        list-style: none;
+        min-height: 14rem;
+        font-size: 1.6rem;
+        line-height: 1.6;
+        li {
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 1.4rem;
+                height: 1.4rem;
+                background: url(../img/check.svg) no-repeat center;
+                background-size: 100%;
+                vertical-align: middle;
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+
+
+
+
+// Секция с отзывами
+.feedback {
+    position: relative;
+    background: url(../img/feedback/feedback-bg.png) center no-repeat;
+    background-size: cover;
+    &-prev-btn {
+        left: -4rem;
+    }
+    &-next-btn {
+        right: -4rem;
+    }
+    &-text {
+        position: relative;
+        padding: 1rem;
+        font-style: italic;
+        border: 2px solid @icons-color;
+        margin-top: 2rem;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            background-color: @light;
+            border: 2px solid @icons-color;
+            border-bottom: none;
+            border-top-right-radius: 100px;
+            border-bottom-left-radius: 75px;
+            top: -2rem;
+            width: 2.5rem;
+            height: 2rem;
+            left: 4rem;
+        }
+        
+    }
+    &-form {
+        text-align: center;
+        margin-top: 5rem;
+        background-color: @light;
+        padding: 4rem 10rem;
+        h3 {
+            .bold();
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        label {
+            transform: translate(-55%, 8px);
+
+        }
+    }
+    &-btn {
+        max-width: 30rem;
+        margin: auto;
+    }
+    &-slider {
+        padding: 5rem 6rem;
+        background-color: @light;
+        box-shadow: 6px 10px 18px 0px rgba(0, 0, 0, 0.2);
+        p {
+            font-size: 1.6rem;
+        }
+        .media {
+            margin-top: 3rem;
+            &-body {
+                span {
+                    margin-left: 1rem;
+                    font-size: 1.3rem;
+                }
+                h4 {
+                    .bold();
+                    margin-left: 1rem;
+                    font-size: 1.5rem;
+                    line-height: 1.5;
+                }
+            }
+        }
+        &-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4rem;
+            height: 5rem;
+            background-color: @icons-color;
+            border: none;
+            img {
+                width: 50%;
+            }
+        }
+    }
+    .hand {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        max-width: 30rem;
+    }
+    
+}
+
+
+
+
+
+//  Схема работы
+.scheme {
+    background: #fff url(../img/scheme/scheme-bg.png) bottom right -15rem no-repeat;
+    background-size: 65rem;
+    .section-underheader {
+        margin-top: 2.5rem;
+    }
+    &-block {
+        min-height: 30rem;
+    }
+    h3 {
+        font-size: 2rem;
+        .bold();
+        margin: 2rem 0;
+    }
+    p {
+        font-size: 1.7rem;
+    }
+    strong {
+        font-size: 1.8erm;
+        .bold();
+    }
+}
+
+
+
+
+
+// Все на 100% включено!
+.all-inclusive {
+    background:@bg-light;
+    .section-header-green {
+        h2 {
+            color: @icons-color;
+            margin-bottom: 3rem;
+        }
+    }
+    .media {
+        min-height: 9rem;
+        font-size: 1.1rem;
+        h4 {
+            .bold();
+            font-size: 1.6rem;
+            margin-left: 1rem;
+        }
+        p {
+            margin-left: 1rem;
+        }
+        &-body-heading-mt {
+            margin-top: 1rem;
+        }
+        
+    }
+}
+.circle {
+    display: inline-block;
+    background-color: @icons-color;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    &-border {
+        display: inline-block;
+        width: 5rem;
+        height: 5rem;
+        border: 2px solid @icons-color;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 4rem;
+        padding: 0.3rem;
+        color: @light;
+        .bold();
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+// Мы развеем все опасения
+.problems {
+    position: relative;
+    &-woman {
+        position: absolute;
+        width: 30rem;
+        bottom: 0;
+        left: 50%;
+        margin-left: -18rem;
+    }
+    &-list {
+        border: 4px solid;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        min-height: 45rem;
+        h4 {
+            // color: @problems-color;
+            font-size: 2.1rem;
+        }
+        ul {
+            padding: 2rem;
+            padding-left: 0;
+            list-style: none;
+            li {
+                font-size: 1.6rem;
+                margin-bottom: 3rem;
+                position: relative;
+                padding-left: 3.5rem;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }
+
+        }
+        &-bad {
+            border-color: @problems-color;
+            h4 {
+                opacity: 0.5;
+            }
+            ul li::before {
+                background: url(https://rossiev-dmitriy.github.io/gipsolit/img/problems/krest.svg) center no-repeat;
+                background-size: 70%;
+            }
+        }
+
+        &-good {
+            border-color: @icons-color;
+            ul li::before {
+                background: url(https://rossiev-dmitriy.github.io/gipsolit/img/problems/checked.svg) center no-repeat;
+                background-size: 70%;
+                
+            }
+        }
+    }
+}
+
+
+
+
+
+// Материалы
+.materials {
+    background:@light url(../img/materials/materials-bg.jpg) center no-repeat;
+    background-size: cover;
+    .section-header {
+        p {
+            margin-top: 3rem;
+        }
+    }
+    &-slider {
+        margin-top: 5rem;
+        
+    }
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+    &-link {
+        font-size: 1.5rem;
+        color: @icons-color;
+        border-bottom: 1px dashed @icons-color;
+        &:hover {
+            color: darken(@icons-color, 10%);
+        }
+    }
+    &-offer {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 6rem;
+        strong {
+            .bold();
+        }
+    }
+}
+
+
+
+
+
+// Посмотрите, как мы работаем
+.tour {
+    background: @light url(../img/tour/tour-bg.jpg) center no-repeat;
+    background-size: cover;
+    &-title {
+        font-size: 3.6rem;
+    }
+    &-subtitle {
+        font-size: 2.2rem;
+    }
+}
+
+
+
+
+// Дополнительные услуги
+.upsell {
+    background:@bg-upsell-color;
+    &-block {
+    &s {
+        margin-top: 3rem;
+    }
+        img {
+            display: inline-block;
+            margin-bottom: 2rem;
+            width: 100%;
+            max-width: 30rem;
+        }
+        p {
+            font-size: 2rem;
+        }
+        text-align: center;
+        color: @light;
+        min-height: 30rem;
+    }
+    .section-header {
+        p {
+            margin-top: 3rem;
+        }  
+    }
+}
+
+
+
+
+
+// Контакты
+.contacts {
+    background: @light url(../img/contacts/contacts-bg.jpg) center no-repeat;
+    background-size: cover;
+    h2 {
+        .bold();
+    }
+    p {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        font-size: 1.5rem;
+    }
+    &-link {
+        display: inline-block;
+        border-bottom: 1px dotted @icons-color;
+        color: @icons-color;
+        &:hover {
+           color: darken(@icons-color, 10%);
+        }
+    }
+    // Заголовок для формы
+    &-form {
+        h2 {
+            font-size: 1.9rem;
+            .reg();
+            margin-bottom: 4rem;
+        }
+    }
+}
+
+
+
+
+
+footer {
+    padding: 4rem 0; 
+    background-color: @light;  
+    img {
+        margin-top: 3rem;
+    }
+    .footer {
+        &-contacts {
+            text-align: center;
+            font-size: 1.6rem;
+            p {
+                margin: 0;
+                padding-top: 0.5rem;
+            }
+        }
+        &-dev {
+            text-align: right;
+            margin-top: 0;
+            padding-top: 0;
+        } 
+    }
+}
+
+
+
+
+
+
+// Оформление модальных (всплывающих) окон
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.5);
+    &-content {
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 4rem 6rem;
+        background-color: @light;
+        p {
+            font-size: 1.1rem;
+        }
+    }
+    &-header {
+        font-size: 1.7rem;
+        .bold();
+    }
+    &-form {
+        margin-top: 3rem;
+        padding: 0;
+        font-size: 1.5rem;
+        label {
+            background-color: @light;
+            padding: 0.5rem;
+            font-size: 1.3rem;
+    
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        } 
+    }
+    &-close {
+        position: absolute;
+        top: -1.5rem;
+        right: -2rem;
+        width: 2rem;
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        font-size: 3rem;
+        color: @light;
+    }
+    &-content {
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 1199px) {
+    .feedback {
+        &-form {
+            padding: 3rem 5rem;
+        }
+        
+        .hand {
+            left: -30px;
+        }
+    }
+    .price-block {
+        min-height: 58rem;
+        margin-bottom: 2rem;
+    }
+    .scheme {
+        background: #fff url(../img/scheme/scheme-bg.png) bottom right -30rem no-repeat;
+        background-size: 65rem;
+    }
+    .all-inclusive {
+        .media {
+            min-height: 11rem;
+            
+            &-body-heading-sm-mt {
+                margin-top: 1rem;
+            }  
+        }
+    }
+    .problems {
+        &-list {
+            min-height: 55rem;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .main {
+        background-position: top right;
+    }
+    .fotorama {
+        margin-bottom: 3rem;
+        
+    }
+    .phone-link-block {
+        text-align: center;
+    }
+    .main-content {
+        margin-top: 3rem;
+    }
+    .main-title {
+        text-align: center;
+        padding-bottom: 3rem;
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+        }
+        .main-subtitle {
+            font-size: 2rem;
+        }
+    }
+    .price {
+        &-button {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        &-header-btn {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+    }
+    .section-header-light {
+        margin-bottom: 0;
+    }
+
+    .feedback {
+        .hand {
+            display: none;
+        }
+    }
+    .media {
+        &-body-heading-sm-mt {
+            margin-top: 1rem;
+        }
+    }
+    .problems {
+        &-woman {
+            display: none;
+        }
+    }
+    .tour {
+        background: none;
+        background-color: @bg-light;
+    }
+    section {
+        padding: 5rem 0;
+    }
+    .problems-list {
+        min-height: 40rem;
+    }
+    .contacts {
+        background: @bg-light;
+        background: none;
+    }
+    footer {
+        text-align: center;
+        .footer-contacts {
+            margin: 3rem 0; 
+        }
+        .footer-dev {
+            text-align: center;
+        }
+    }
+}
+
+
+
+
+@media (max-width: 767px) {
+    .header {
+        text-align: center;
+    }
+    .btn-center {
+        margin-right: 50%;
+        transform: translateX(50%);
+    }
+    .main {
+        &-content {
+            margin-top: 150px;
+        }
+        background-position: top left;
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
+    .feedback {
+        &-prev-btn {
+            left: 0;
+                                            
+        }
+        &-next-btn {
+            right: 0;
+        }
+    }
+    .scheme {
+        background: none;
+        text-align: center;
+        &-block {
+            min-height: 20rem;
+        }
+    }
+    .problems {
+        &-list {
+            min-height: auto;
+        }
+    }
+    .features {
+        &-block {
+            min-height: 50rem;
+            p {
+                width: 100%;
+                margin: 0 auto;
+                margin-bottom: 3rem;
+            }
+            
+        }
+    }
+    
+}
